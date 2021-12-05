@@ -13,7 +13,7 @@ func main() {
 }
 
 func part2(filename string) {
-	data, bits := readfile(filename)
+	data, bits := getinput(filename)
 	for len(data) > 1 && bits > 0 {
 		onecount := getonescount(data, bits)
 		fmt.Printf("onecount=%d, len=%d\n", onecount, len(data))
@@ -28,7 +28,7 @@ func part2(filename string) {
 	fmt.Println(data)
 	oxy := data[0]
 
-	data, bits = readfile(filename)
+	data, bits = getinput(filename)
 	for len(data) > 1 && bits > 0 {
 		onecount := getonescount(data, bits)
 		fmt.Printf("onecount=%d, len=%d\n", onecount, len(data))
@@ -69,7 +69,7 @@ func getonescount(data []int64, bit int) int {
 	return count
 }
 
-func readfile(filename string) ([]int64, int) {
+func getinput(filename string) ([]int64, int) {
 	f, err := os.Open(filename)
 	if err != nil {
 		log.Fatal(err)
